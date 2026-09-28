@@ -30,6 +30,15 @@ Vagrant
 
 # Virtualisation Examples
 
+---
+**Exercise 1.2**
+
+Follow the notes below to install VirtualBox on your own PC or use virtualbox in the lab
+* install virtual box
+* install a virtual machine from the iso file in the lab D:/vm-iso-files
+
+---
+
 ## Installing VirtualBox
 You can download VirtualBox from [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
@@ -51,17 +60,28 @@ The basis steps will be the same for RHEL, Centos, Alma linux.
 
 The isos for various releases are available on line and can be downloaded directly or faster by using `bittorrent` if it is not blocked on your network.
 
-Alma Liux:
+(Note that the lab version of VirtualBox will not work with Ubuntu 26 or Rocky 10)
 
-[https://almalinux.org/get-almalinux/](https://almalinux.org/get-almalinux/)
+Ubuntu:
 
-[https://repo.almalinux.org/almalinux/10/isos/x86_64/](https://repo.almalinux.org/almalinux/10/isos/x86_64/)
+[Ubuntu 22.04.5 https://releases.ubuntu.com/jammy/](https://releases.ubuntu.com/jammy/)
+
+Ubuntu 24.04.5 https://releases.ubuntu.com/noble/](https://releases.ubuntu.com/noble/)
+
 
 Rocky Linux:
 
 [https://rockylinux.org/download](https://rockylinux.org/download)
 
-[https://download.rockylinux.org/pub/rocky/10/isos/x86_64/](https://download.rockylinux.org/pub/rocky/10/isos/x86_64/)
+[Rocky 9.8 https://rockylinux.org/news/rocky-linux-9-8-ga-release](https://rockylinux.org/news/rocky-linux-9-8-ga-release)
+
+[Rocky 10 https://download.rockylinux.org/pub/rocky/10/isos/x86_64/](https://download.rockylinux.org/pub/rocky/10/isos/x86_64/)
+
+Alma Liux:
+
+[https://almalinux.org/get-almalinux/](https://almalinux.org/get-almalinux/)
+
+[https://repo.almalinux.org/almalinux/10/isos/x86_64/](https://repo.almalinux.org/almalinux/10/isos/x86_64/)
 
 
 # Getting Started with Vagrant and Virtual Box
