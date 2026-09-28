@@ -1,12 +1,11 @@
-
-## Installing Vagrant
+# VAGRANT
 
 Vagrant is an open-source tool by HashiCorp that simplifies creating and managing portable, reproducible development environments using virtual machines (VMs). 
 It is very similar in function to `docker compose`
 
 I am using Vagrant for Windows with VirtualBox
 
-Vagrant can work with other virtualisation platforms including Vmware, docker and KVM. 
+Vagrant can work with other virtualisation platforms including Vmware, docker and KVM/libvirt. 
 However most of the documentation seems to prefer VirtualBox so this seems the most sensible choice. 
 
 Vagrant can also be installed on Apple MAC and linux computers but I will leave that to your own research.
@@ -17,6 +16,8 @@ Normally Vagrant stores downloaded `.box` files and other user configuration in 
 
 However this can mean that the boxes are stored on a one drive or other network drive, so I prefer to make sure they are stored on the local C drive. 
 The location is set using the VAGRANT_HOME variable
+
+(in the lab VAGRNT_HOME is set to D:/vagranthome)
 
 ```
 setx VAGRANT_HOME C:\devel\vagrant\vagranthome
@@ -33,14 +34,14 @@ Vagrant is very easy to get started.
 
 Vagrant provide a number of pre-built `boxes` in the 'vagrant cloud' which are the starting point for creating a local machine.
 
-See for instance [Alma Linux 10](alma linux  https://portal.cloud.hashicorp.com/vagrant/discover/almalinux/10)
+See for instance [Rocky Linux 9.6](https://portal.cloud.hashicorp.com/vagrant/discover/bento/rockylinux-9.6)
 
 Create a new empty folder and name it WITH NO SPACES IN THE NAME .
 
 In the new folder, Initialise a new vagrant project using the pre-defined Alma Linux 10 bx
 
 ```
-vagrant init almalinux/10 --box-version 10.1.20260110
+vagrant init bento/rockylinux-9.6 --box-version 202510.26.0
 ```
 This will create a `Vagrantfile` and a `.vagrant` folder in your folder. 
 
@@ -94,17 +95,27 @@ Note that while this may remove the machine from the VirtualBox gui, it may not 
 
 If it is still there, delete it manually.
 
-# Example projects
+# Vagrant boxes provided in lab machines
 
-I have provided three example projects.
-Review the first two projects but you dont have to build them. 
-However have a real go at [example3](../vagrant-examples/example3) as it will create a base box for use later.
+The lab machines have vagrant boxes provided in D:/vagranthome
 
-[example1](../vagrant-examples/example1) is a simple debian 11 project - very similar to what you have done above.
+These correspond to the lab vagrant files in the folders under [bento](./bento)
 
-[example2](../vagrant-examples/example2) is an alma linux 10 project which uses the same vagrant file to create two machines. 
+These vagrant boxes were created using vagrant init on windows with VirtualBox
 
-[example3](../vagrant-examples/example3) creates an alma linux 10 base project to create a box which is used by a downsteam project. 
-This is the most important project as it is the basis for further work with Ansible. 
+These are used to create local vagrant master boxes for use when off-line
 
+Hashicorp are closing vagrant cloud, so these boxes have been created using vagrant cloud before it stops service. 
+
+```
+vagrant init BOX-VERSION   # e.g. vagrant init bento/ubuntu-22.04
+vagrant up   
+vagrant ssh  # log into the box to ensure working use 'exit' to logout
+
+
+vagrant halt    # stop the box but keeps local metadata
+vagrant destroy # only destroys the local metadata - not the master box
+
+
+```
 
