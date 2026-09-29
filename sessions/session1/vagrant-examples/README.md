@@ -40,7 +40,7 @@ See for instance [Rocky Linux 9.6](https://portal.cloud.hashicorp.com/vagrant/di
 
 Create a new empty folder and name it WITH NO SPACES IN THE NAME .
 
-In the new folder, Initialise a new vagrant project using the pre-defined Alma Linux 10 bx
+In the new folder, Initialise a new vagrant project using the pre-defined rocky linux box
 
 ```
 vagrant init bento/rockylinux-9.6 --box-version 202510.26.0
@@ -101,7 +101,7 @@ If it is still there, delete it manually.
 
 The lab machines have vagrant boxes provided in D:/vagranthome
 
-These correspond to the lab vagrant files in the folders under [bento](./bento)
+These correspond to the lab vagrant files in the folders under [vagrant-examples/bento](./bento)
 
 These vagrant boxes were created using vagrant init on windows with VirtualBox
 
