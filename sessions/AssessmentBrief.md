@@ -39,6 +39,6 @@ The solution should:
 * Administrators should also use personal SSH keys to access core systems.
 * Centralised user authentication and permission management should also be considered for the solution (stretch goal).
 
-* NOTE: The Sirius Cybernetics Corporation is a fictional, disastrously inept manufacturing company from Douglas Adams' The Hitchhiker's Guide to the Galaxy series. Their products are infamous for fundamental design flaws hidden completely by superficial design flaws. It is very easy to be blinded to the essential uselessness of them by the sense of achievement you appreciate from getting them to work at all.
+( * NOTE: The Sirius Cybernetics Corporation is a fictional, disastrously inept manufacturing company from Douglas Adams' The Hitchhiker's Guide to the Galaxy series. Their products are infamous for fundamental design flaws hidden completely by superficial design flaws. It is very easy to be blinded to the essential uselessness of them by the sense of achievement you appreciate from getting them to work at all)
 
 
