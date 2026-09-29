@@ -59,10 +59,10 @@ As you move on with Linux, a good working knowledge of package management will r
 
 There are lots of online tutorials on apt and `man apt` will also help you.
 
-## Installing Apache2 on your Raspberry Pi
+## Installing Apache2 on your Debin/Ubuntu server
 
 The [Apache HTTP Server](https://httpd.apache.org/) has long been the number one web server on the Internet.
-We are going to install it on the Pi.
+We are going to install it on the virtual machine.
 
 If you are connected to the internet, you can use
 
@@ -118,6 +118,13 @@ www-data  4613  0.0  0.1   3296  1152 ?        Ss   16:18   0:00 /usr/bin/htcach
 admin    10458 33.3  0.1   7532  1792 pts/3    S+   19:09   0:00 grep --color=auto apache2
 ```
 
+If your machine does not have a browser, you can test if the server is returning pages locally using
+
+
+
+
+If your VM has a gui and a browser installed you will be able to view the apache server using the following commands
+
 On the server open a browser and browse to http://localhost or http://-local address- if accessing the pi externally.
 
 You will see the following page:
@@ -168,7 +175,7 @@ It would be good for you to gain some familiarity with HTML.
 
 Work you way through the [w3c html tutorial](https://www.w3schools.com/html/default.asp)
 
-Try copying the w3c examples into pages on your raspberry Pi Apache Web Server.
+Try copying the w3c examples into pages on your  Apache Web Server.
 
 
 

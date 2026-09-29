@@ -86,11 +86,25 @@ Alma Liux:
 
 [https://repo.almalinux.org/almalinux/10/isos/x86_64/](https://repo.almalinux.org/almalinux/10/isos/x86_64/)
 
-## Package Management
-
-Read the notes on [Package Management](./package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
-
 # Getting Started with Vagrant and Virtual Box
 
 Read the notes on [vagrant-examples](../../session1/vagrant-examples) and try creating virtual machines with vagrant.
+
+## Vagrant networking and Package Management
+
+By default, your vagrant machine will only have one network interface running behind a NAT firewall.
+This means that while the VM can contact external networks connected to your host computer, your host and external computers cannot connect to your virtual machine.
+
+To fix this, vagrant allows a command which sets up port forwarding to the host machine.
+
+Uncomment the following line in the example vagrant files to enable port forwarding from port 80 on the guest to port 8080 on the host
+
+```
+  config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+Now we can install a web server forward pages to out host machine.
+
+Read the notes on [Package Management](./package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
+
 
