@@ -87,7 +87,3 @@ Alma Liux:
 # Getting Started with Vagrant and Virtual Box
 See [vagrant-examples](../session1/vagrant-examples)
 
-## User Management
-Post deploy script install what we need set up basic access
-SSH based access for users - public private keys
-
