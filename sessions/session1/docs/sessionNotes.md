@@ -102,7 +102,7 @@ We will use vagrant in the class to make it easier to configure virtual machines
 
 Read the notes on [vagrant-examples](../../session1/vagrant-examples) and try creating virtual machines with vagrant.
 
-## Vagrant networking and Package Management
+## Vagrant Networking and Provisioning
 
 By default, your vagrant machine will only have one network interface running behind a NAT firewall.
 This means that while the VM can contact external networks connected to your host computer, your host and external computers cannot connect to your virtual machine.
@@ -119,6 +119,51 @@ Uncomment the following line in the example vagrant files to enable port forward
 
 Now we can install a web server on the guest and forward pages to our host machine.
 
-Read the notes on [Package Management](./package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
+Read the notes on [Package Management](./package-management-apache.md) and see if you can manually install and start Apache on the Ubuntu Linux machines.
+
+## Vagrant Provisioning
+
+---
+**Exercise 1.4**
+
+Follow the notes below to automatically provision Apache on a vagrant box
+
+---
+
+If you have managed to get Apache installed manually on the Ubuntu machine, we are going to do the same automatically from vagrant.
+
+Before you start destroy your existing vagrant machine
+
+```
+vagrant destroy
+```
+
+Uncomment the following lines in the vagrant file
+
+```
+  config.vm.provision "shell", inline: <<-SHELL
+     apt-get update
+     apt-get install -y apache2
+  SHELL
+```
+ and restart the machine using
+ 
+```
+vagrant up
+```
+
+The shell provisioner runs the specified in line shell script and automatically installs and enables apache2 in Ubuntu.
 
 
+---
+**Exercise 1.5 - more challenging**
+
+Having installed apache on Ubuntu, how would you do the same on Rocky Linux. 
+
+A few hints
+
+1. on Rocky, Apache is called httpd. You are using yum to install httpd. `sudo yum -y install httpd`
+2. dont forget to enable and start httpd 
+3. you need to create the index.html page in /var/www/html/ before httpd will respond
+
+---

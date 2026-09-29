@@ -68,7 +68,10 @@ We are going to install it on the virtual machine.
 
 If you are connected to the internet, you can use
 
-`sudo apt install apache2`
+```
+sudo apt update
+sudo apt install apache2
+```
 
 ## Testing the Apache Web Server
 
@@ -134,6 +137,8 @@ If your VM has a gui and a browser installed you will be able to view the apache
 
 On the server open a browser and browse to http://localhost or http://-local address- if accessing the machine externally.
 
+If you are running a vagrant virtual machine, with port forwarding enabled, you can view the page on the host using http://localhost:8080
+
 You will see the following page:
 
    ![alt text](../docs/images/apache2default.png "Figure apache2default.png")
@@ -182,7 +187,7 @@ It would be good for you to gain some familiarity with HTML.
 
 Work you way through the [w3c html tutorial](https://www.w3schools.com/html/default.asp)
 
-Try copying the w3c examples into pages on your  Apache Web Server.
+Try copying some of the w3c examples into pages on your  Apache Web Server.
 
 
 

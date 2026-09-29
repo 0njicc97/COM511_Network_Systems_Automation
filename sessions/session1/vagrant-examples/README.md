@@ -130,7 +130,7 @@ You can find out more about vagrant from the many tutorial examples and online d
 **Exercise 1.3**
 
 Read the notes in Package Management  and see if you can 
-* Spin up a vagrant box and install Apache manually using the SSH terminal. Try this for both Ubuntu and Rocky boxes.
+* Spin up a vagrant box and install Apache manually using the SSH terminal. Try this for the Ubuntu boxes
 * Work out how you can expose port 80 to see the Apache server on your host system. (See [Forwarded Ports](https://developer.hashicorp.com/vagrant/docs/networking/forwarded_ports) ).
 * Can you work out how to install Apache at the same time as the vagrant box is being built (See [Provisioning](https://developer.hashicorp.com/vagrant/docs/provisioning/basic_usage) ).
 ---
