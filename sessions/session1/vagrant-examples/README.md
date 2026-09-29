@@ -1,4 +1,5 @@
 # VAGRANT
+(Note Vagrant is already installed on the university lab PCs)
 
 Vagrant is an open-source tool by HashiCorp that simplifies creating and managing portable, reproducible development environments using virtual machines (VMs). 
 It is very similar in function to `docker compose`
@@ -23,7 +24,6 @@ The location is set using the VAGRANT_HOME variable
 setx VAGRANT_HOME C:\devel\vagrant\vagranthome
 ```
 (setx a command-line tool to permanently create or modify user or system environment variables, writing them to the registry for future command prompt sessions)
-
 
 # Building your first vagrant machine
 
