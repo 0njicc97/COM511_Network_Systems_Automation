@@ -87,7 +87,8 @@ Alma Liux:
 [https://repo.almalinux.org/almalinux/10/isos/x86_64/](https://repo.almalinux.org/almalinux/10/isos/x86_64/)
 
 ## Package Management
-Read the notes on [Package Management](./docs/package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
+Read the notes on [Package Management](./package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
 
 # Getting Started with Vagrant and Virtual Box
-See [vagrant-examples](../../session1/vagrant-examples)
+
+Read the notes on [vagrant-examples](../../session1/vagrant-examples) and try creating virtual machines with vagrant.
