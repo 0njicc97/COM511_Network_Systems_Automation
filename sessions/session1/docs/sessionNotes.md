@@ -160,10 +160,13 @@ The shell provisioner runs the specified in line shell script and automatically 
 
 Having installed apache on Ubuntu, how would you do the same on Rocky Linux. 
 
+There are a few more gotchas for you to debug.
+
 A few hints
 
 1. on Rocky, Apache is called httpd. You are using yum to install httpd. `sudo yum -y install httpd`
-2. dont forget to enable and start httpd 
+2. dont forget to enable and start httpd `sudo systemctl enable httpd; sudo systemctl start firewalld`
 3. you need to create the index.html page in /var/www/html/ before httpd will respond
+4. make sure the firewalld is not blocking http `sudo systemctl stop firewalld` will turn it off - but it would be better to allow http (see https://www.redhat.com/en/blog/firewalld-linux-firewall)
 
 ---
