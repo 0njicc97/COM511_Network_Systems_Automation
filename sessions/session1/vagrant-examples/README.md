@@ -118,6 +118,18 @@ vagrant ssh  # log into the box to ensure working use 'exit' to logout
 vagrant halt    # stop the box but keeps local metadata
 vagrant destroy # only destroys the local metadata - not the master box
 
-
 ```
+
+You can find out more about vagrant from the many tutorial examples and online documentation.
+* [vagrant guide](https://www.baeldung.com/ops/vagrant-guide)
+* [vagrant documentation](https://developer.hashicorp.com/vagrant/docs)
+
+---
+**Exercise 1.3**
+
+Read the notes in Package Management  and see if you can 
+* Spin up a vagrant box and install Apache manually using the SSH terminal. Try this for both Ubuntu and Rocky boxes.
+* Work out how you can expose port 80 to see the Apache server on your host system. (See [Forwarded Ports](https://developer.hashicorp.com/vagrant/docs/networking/forwarded_ports) ).
+* Can you work out how to install Apache at the same time as the vagrant box is being built (See [Provisioning](https://developer.hashicorp.com/vagrant/docs/provisioning/basic_usage) ).
+---
 
