@@ -1,17 +1,19 @@
 [Main Menu](../../../sessions/README.md)|[Session1](../../session1/) | [Vagrant Examples](../../session1/vagrant-examples)
 
 # VAGRANT
-(Note Vagrant is already installed on the university lab PCs)
 
-Vagrant is an open-source tool by HashiCorp that simplifies creating and managing portable, reproducible development environments using virtual machines (VMs). 
+[Vagrant](https://developer.hashicorp.com/vagrant) is an open-source tool by HashiCorp that simplifies creating and managing portable, reproducible development environments using virtual machines (VMs). 
 It is very similar in function to `docker compose`
 
-I am using Vagrant for Windows with VirtualBox
+We are using Vagrant for Windows with VirtualBox
 
 Vagrant can work with other virtualisation platforms including Vmware, docker and KVM/libvirt. 
 However most of the documentation seems to prefer VirtualBox so this seems the most sensible choice. 
 
-Vagrant can also be installed on Apple MAC and linux computers but I will leave that to your own research.
+Vagrant can also be installed on Apple MAC and linux computers but I will leave that to your own research. 
+Note that the processor must match the processor associated with the box (mostly AMD64).
+
+(Note Vagrant is already installed on the university lab PCs)
 
 You can download Vagrant from [install vagrant](https://developer.hashicorp.com/vagrant/install)
 
@@ -20,7 +22,7 @@ Normally Vagrant stores downloaded `.box` files and other user configuration in 
 However this can mean that the boxes are stored on a one drive or other network drive, so I prefer to make sure they are stored on the local C drive. 
 The location is set using the VAGRANT_HOME variable
 
-(in the lab VAGRNT_HOME is set to D:/vagranthome)
+(in the university lab VAGRNT_HOME is set to D:/vagranthome)
 
 ```
 setx VAGRANT_HOME C:\devel\vagrant\vagranthome
