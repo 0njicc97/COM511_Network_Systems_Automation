@@ -1,4 +1,4 @@
-[Main Menu](../../../sessions/README.md)|[session1](../../session1/) | [Session 1 Notes](../docs/sessionNotes.md)
+[Main Menu](../../../sessions/README.md)|[Session1](../../session1/) | [Session 1 Notes](../docs/sessionNotes.md)
 
 # Session 1 Notes and Exercises
 
@@ -40,6 +40,9 @@ Follow the notes below to install VirtualBox on your own PC or use virtualbox in
 ---
 
 ## Installing VirtualBox
+
+(Note VirtualBox is already installed on the university machines)
+
 You can download VirtualBox from [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
 Other virtual box installers and iso files are here (i amusing version 7.2.4) https://download.virtualbox.org/virtualbox/https://download.virtualbox.org/virtualbox/7.2.4/
@@ -83,7 +86,11 @@ Alma Liux:
 
 [https://repo.almalinux.org/almalinux/10/isos/x86_64/](https://repo.almalinux.org/almalinux/10/isos/x86_64/)
 
+## Package Management
+
+Read the notes on [Package Management](./package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
 
 # Getting Started with Vagrant and Virtual Box
-See [vagrant-examples](../session1/vagrant-examples)
+
+Read the notes on [vagrant-examples](../../session1/vagrant-examples) and try creating virtual machines with vagrant.
 
