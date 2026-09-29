@@ -2,7 +2,7 @@
 
 # Operating System Package Management
 
-In this section, we will first give an overview of package management before looking specifically at how to install an apache 2 web server on debian system or a Raspberry Pi.
+In this section, we will first give an overview of package management before looking specifically at how to install an apache 2 web server on a Debian or Ubuntu system.
 
 ## Overview of System Package Management
 
@@ -15,24 +15,25 @@ For instance, in Microsoft Windows, programs are usually packaged as a `Dynamic 
 A DLL is a library that contains code and data that can be used by more than one program at the same time. 
 Windows itself consists of many `.dll` files in the `C:\Windows\System32` folder.
 
-If you look at each of the programs installed in `C:\Program Files`, you will see that they each have multiple .dll files which have been installed by the Microsoft Software Installer from `.msi` files ( a file format used to install, maintain, and remove software on Windows systems).
+If you look at each of the programs installed in `C:\Program Files`, you will see that they each have multiple `.dll` files which have been installed by the Microsoft Software Installer from `.msi` files ( a file format used to install, maintain, and remove software on Windows systems).
 
 Linux distributions use a similar mechanism to manage pre-compiled programs.
 
-We have seen that in Linux, a compiled program (object code) is shipped in `object files` with the suffix  `.o` or `shared object files` with the suffix `.so`
+In Linux, a compiled program (object code) is shipped in `object files` with the suffix  `.o` or `shared object files` with the suffix `.so`
 These files need to be placed in the correct directory so that they can be found by the operating system when the program is run.
 When a program is installed, we will also want to install other files such as configuration files or documentation.
 
-There are two package formats commonly used in linux
+There are two package formats commonly used in Linux:
 
 Red Hat derived operating systems (RHEL, CENTOS, RockyLinux, Suse) packages programs as RPM files (Red Hat Package Manager) which are managed using a program called `yum` (lately updated to `dnf`).
 
-Debian derived operating systems (Debian, Centos, Raspbery OS) use DEB files `.deb.` with package managers called `apt` or `apt-get`c
-Package managers mostly do similar things, but we will concentrate on Raspberry OS package management in this session.
+Debian derived operating systems (Debian, Centos, Raspbery OS) use DEB files `.deb.` with package managers called `apt` or `apt-get`
+
+Package managers mostly do similar things, but we will concentrate on Debian/Ubuntu package management in this session.
 
 ## Using apt to install packages on debian systems
 
-APT maintains a database of the latest software which can be installed in a particular version of a debian derived linux.
+APT maintains a database of the latest software which can be installed in a particular version of a debian derived linux like Ubuntu.
 
 Before installing any new software, you need to ensure the local apt database is up to date:
 
@@ -43,6 +44,7 @@ sudo apt update
 If you just want to update all existing packages to the latest versions, use
 
 `sudo apt upgrade`
+
 
 If you want to install a particular package use
 
@@ -120,12 +122,17 @@ admin    10458 33.3  0.1   7532  1792 pts/3    S+   19:09   0:00 grep --color=au
 
 If your machine does not have a browser, you can test if the server is returning pages locally using
 
+```
+wget http://localhost
 
+or
 
+curl http://localhost
+```
 
 If your VM has a gui and a browser installed you will be able to view the apache server using the following commands
 
-On the server open a browser and browse to http://localhost or http://-local address- if accessing the pi externally.
+On the server open a browser and browse to http://localhost or http://-local address- if accessing the machine externally.
 
 You will see the following page:
 

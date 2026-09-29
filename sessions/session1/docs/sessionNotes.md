@@ -22,11 +22,19 @@ Start by revising [Operating Systems Structure](./operating-systems-structure.md
 
 ## Virtualisation
 
+A virtual machine (VM) is a software-based emulation of a physical computer that runs its own operating system and applications using a shared pool of a host machine's hardware resources.
+
+• Host and Guest: The physical computer running the virtualization software is the host, and the virtual machine itself is the guest.
+• Hypervisor: A lightweight software layer called a hypervisor divides the host's physical resources (such as CPU, memory, and storage) and allocates them to the guest VM.
+• Isolation: The VM operates in an independent, sandboxed environment so that software or malware inside the VM cannot interfere with the host system's primary operating system
+
+A type 1 hypervisor runs natively on the bare metal server. This is most often used in data centres.
+
+A type 2 hypervisor runs on top of an already installed operating system. Typically this is what we use for experiments with your work PC.
+
 ![alt text](./images/HypervisorTypes.png "Figure HypervisorTypes.png")
 
-Virtualisation - type 1 / 2 hypervisor
-VirtualBox
-Vagrant
+VMware Player and VirtualBox are widely used type 2 virtualisation frameworks which run on windows.
 
 # Virtualisation Examples
 
@@ -40,6 +48,7 @@ Follow the notes below to install VirtualBox on your own PC or use virtualbox in
 ---
 
 ## Installing VirtualBox
+
 
 (Note VirtualBox is already installed on the university machines)
 
@@ -88,6 +97,9 @@ Alma Liux:
 
 # Getting Started with Vagrant and Virtual Box
 
+Vagrant makes the whole process of provisioning a virtual machine much more consistent and easier to do.
+We will use vagrant in the class to make it easier to configure virtual machines for our experiments.
+
 Read the notes on [vagrant-examples](../../session1/vagrant-examples) and try creating virtual machines with vagrant.
 
 ## Vagrant networking and Package Management
@@ -103,7 +115,9 @@ Uncomment the following line in the example vagrant files to enable port forward
   config.vm.network "forwarded_port", guest: 80, host: 8080
 ```
 
-Now we can install a web server forward pages to out host machine.
+(Note that you may need to use a port other than 8080 on the host machine if 8080 is already in use).
+
+Now we can install a web server on the guest and forward pages to our host machine.
 
 Read the notes on [Package Management](./package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
 
