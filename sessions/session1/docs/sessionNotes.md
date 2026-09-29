@@ -41,7 +41,7 @@ Follow the notes below to install VirtualBox on your own PC or use virtualbox in
 
 ## Installing VirtualBox
 
-(note VirtualBox is already installed on the university machines)
+(Note VirtualBox is already installed on the university machines)
 
 You can download VirtualBox from [VirtualBox Downloads](https://www.virtualbox.org/wiki/Downloads)
 
@@ -86,6 +86,8 @@ Alma Liux:
 
 [https://repo.almalinux.org/almalinux/10/isos/x86_64/](https://repo.almalinux.org/almalinux/10/isos/x86_64/)
 
+## Package Management
+Read the notes on [Package Managmenent](./docs/package-management-apache.md) and see if you can manually install Apache on both Ubuntu and Rocky Linux machines
 
 # Getting Started with Vagrant and Virtual Box
 See [vagrant-examples](../../session1/vagrant-examples)
