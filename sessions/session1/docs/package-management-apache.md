@@ -68,39 +68,7 @@ If you are connected to the internet, you can use
 
 `sudo apt install apache2`
 
-Alterntively, if your internet connection is slow or not working you can install directly from files which have been downloaded in advance.
-
-Download (or transfer using a USB memory stick) the following files to your Pi:
-
-```
-apache2_2.4.62-1~deb12u2_armhf.deb        
-libapr1_1.7.2-3_armhf.deb
-apache2-bin_2.4.62-1~deb12u2_armhf.deb    
-libaprutil1_1.6.3-1_armhf.deb
-apache2-data_2.4.62-1~deb12u2_all.deb     
-libaprutil1-dbd-sqlite3_1.6.3-1_armhf.deb
-apache2-utils_2.4.62-1~deb12u2_armhf.deb  
-libaprutil1-ldap_1.6.3-1_armhf.deb
-```
-
-And install them using 
-
-```
-sudo apt-get install -f ./*.deb
-
-```
-
-Note you can pre-download packages to another Pi using
-
-```
-sudo apt clean  ## clears the archive
-sudo apt install --download-only apache2
-```
-
-The files listed above will be in  `/var/cache/apt/archives`
-
 ## Testing the Apache Web Server
-
 
 Having installed the server, we can use the following commands to run the service as a background process.
 
@@ -150,7 +118,7 @@ www-data  4613  0.0  0.1   3296  1152 ?        Ss   16:18   0:00 /usr/bin/htcach
 admin    10458 33.3  0.1   7532  1792 pts/3    S+   19:09   0:00 grep --color=auto apache2
 ```
 
-On the PI open a browser and browse to http://localhost or http://-local address- if accessing the pi externally.
+On the server open a browser and browse to http://localhost or http://-local address- if accessing the pi externally.
 
 You will see the following page:
 
