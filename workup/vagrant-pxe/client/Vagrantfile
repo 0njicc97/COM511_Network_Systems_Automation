@@ -19,6 +19,12 @@ Vagrant.configure("2") do |config|
       vb.memory = '10240'
       vb.cpus = '1'
       vb.gui = 'true'
+      
+      # Change the display driver to VMSVGA, VBoxSVGA, VBoxVGA, or none
+      vb.customize ["modifyvm", :id, "--graphicscontroller", "VBoxSVGA"]
+         
+         # Optional: You can also increase the Video RAM (VRAM) in MB if needed
+      vb.customize ["modifyvm", :id, "--vram", "128"]
 
       vb.customize [
         'modifyvm', :id,

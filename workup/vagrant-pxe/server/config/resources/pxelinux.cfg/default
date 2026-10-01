@@ -11,7 +11,7 @@ LABEL Pxeboot Ubuntu
     KERNEL /ubuntu/vmlinuz
     INITRD /ubuntu/initrd
     SYSAPPEND 3
-    APPEND  url=http://192.168.0.254:8080/sharedisos/ubuntu-24.04.5-live-server-amd64.iso
+    APPEND  url=http://192.168.0.254:8080/sharedisos/ubuntu-24.04.5-live-server-amd64.iso cloud-config-url=/dev/null fsck.mode=skip
             
 LABEL Local Boot
     KERNEL syslinux/chain.c32
