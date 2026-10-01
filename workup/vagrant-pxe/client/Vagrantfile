@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 #    end
 
     pxe_client.vm.provider :virtualbox do |vb|
-      vb.memory = '1024'
+      vb.memory = '10240'
       vb.cpus = '1'
       vb.gui = 'true'
 

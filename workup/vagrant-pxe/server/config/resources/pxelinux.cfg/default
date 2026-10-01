@@ -3,7 +3,6 @@ DEFAULT Pxeboot Ubuntu
 PROMPT 0
 
 MENU INCLUDE syslinux/graphics.conf
-MENU AUTOBOOT Local disk boot in # seconds ...
 
 TIMEOUT 100
 
@@ -19,3 +18,4 @@ LABEL Local Boot
     APPEND hd0
     
 #    APPEND  url=http://192.168.0.254:8080/sharedisos/ubuntu-24.04.5-live-server-amd64.iso cloud-config-url=/dev/null autoinstall  ds=nocloud-net;s=http://192.168.0.254:8080/sharedisos/conf/default/ fsck.mode=skip
+

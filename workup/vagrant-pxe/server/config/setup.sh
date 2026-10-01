@@ -17,12 +17,12 @@ mkdir -p /srv/tftp/ubuntu
 
 # mount the ISO file to a temporary directory to access its contents
 mkdir -p /media/iso
-mount -o loop,ro /vagrant/www/sharedisos/ubuntu-24.04.5-live-server-amd64.is /media/iso
+mount -o loop,ro /vagrant/www/sharedisos/ubuntu-24.04.5-live-server-amd64.iso /media/iso
 
 cp /media/iso/casper/initrd  /srv/tftp/ubuntu/
 cp /media/iso/casper/vmlinuz /srv/tftp/ubuntu/
 
-unmount /media/iso
+umount /media/iso
 rm -r /media/iso
 
 
