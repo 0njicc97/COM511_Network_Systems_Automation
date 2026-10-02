@@ -1,7 +1,10 @@
 Vagrant.configure("2") do |config|
   config.vm.define :pxe_client do |pxe_client|
 
-    pxe_client.vm.box = 'bento/ubuntu-24.04'
+    # We need a box to start with, but we will not use it for anything other than bootstrapping the VM. 
+    # we are using rockylinux-9.6 as the base box, but it will be replaced by the PXE boot process with ubuntu.
+    # The PXE boot process will take over from there.
+    pxe_client.vm.box = 'bento/rockylinux-9.6'
 
 #    pxe_client.vm.provider :libvirt do |libvirt|
 #      libvirt.cpu_mode = 'host-passthrough'
