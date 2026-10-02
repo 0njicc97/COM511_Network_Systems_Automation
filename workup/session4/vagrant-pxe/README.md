@@ -2,100 +2,83 @@
 
 Forked and modified from https://github.com/eoli3n/vagrant-pxe/tree/pxelinux 
 
-A vagrant PXE client/server environment which supports virtualbox and libvirt providers.  
-Inspired by https://github.com/stephenrlouie/PXE-Boot-VM/  
+A vagrant PXE client/server environment which supports virtualbox providers.  
 
 It is designed to learn and test cloning solutions, nfsroot, syslinux, etc...
 
-## Setup
+---
+**Exercise 4.1**
 
-1° install _Qemu / Libvirt / Virtualbox_  
- * See your distribution documentation.
+Follow the notes below to run a PXE server and a PXE client to simulate an installation of an operating system onto a bare metal server
+* Make sure you undertand what the server is doing
+* Try booting the client into Rocky Linux first
+* Restart and let the client install Ubuntu
+* Now restart the client and do a local boot - it should start up Ubuntu from disk. 
 
-2° if using, install _Vagrant-libvirt Provider_
- * https://github.com/vagrant-libvirt/vagrant-libvirt
+---
 
-3° ``git clone http://github.com/eoli3n/vagrant-pxe``
-
-## Edit PXE configuration
-
-PXE server's installation script is ``config/setup.sh``.  
-All required files are in ``config/ressources``.  
-Default pxe configuration load pxelinux with a menu to boot local disk.
-
-## Run PXE server
-
-* **System Box** => debian/jessie64
-* **Default CPU** => 1
-* **Default RAM** => 1024
-* **Networking**
- * **eth0** => Management network
- * **eth1** => Private network "pxe_network"
-
-### Virtualbox provider
+## start pxe server
 
 ```
-$ cd vagrant-pxe/server
-$ vagrant up --provider virtualbox
-$ vagrant ssh
+cd server
+vagrant up
 ```
+The first time you run this project, the example will download an ubuntu 24 iso into `server/www/sharedisos`
+This will take about 15 minutes. 
+Once you have done this, as long as the iso is present, the example will not need to do it again. 
+You can speed things up if you already have the ubuntu-24.04.5-live-server-amd64.iso and place it in the directory.
 
-### Libvirt provider
+Note that all `.iso` files are excluded from git by the `.gitignore` file
 
-```
-$ cd vagrant-pxe/server
-$ vagrant up --provider libvirt
-$ vagrant ssh
-```
+## start client server
 
-## Run PXE client
-
-* **System Box** => debian/jessie64
-* **Default CPU** => 1
-* **Default RAM** => 1024
-* **Networking**
- * **eth0** => Private network "pxe_network"
-
-### Virtualbox provider
-
-A box needs [to be set](https://github.com/mitchellh/vagrant/issues/4487) for virtualbox provider.  
-If changing, please choose one which supports virtualbox and libvirt providers.  
-
-Requires [virtualbox extension pack](https://www.virtualbox.org/wiki/Downloads).
+Once the pxe server is up, you can start the client server.
 
 ```
-$ cd vagrant-pxe/client
-$ vagrant up --provider virtualbox
+cd client
+vagrant up
 ```
-Vagrant will hang on ``Warning: Connection refused. Retrying...`` error.
-That's because we edited network configuration to enable pxeboot. Please ignore it.
 
-Virtualbox gui will pop up, showing vm netboot.
+The client first loads a rocky linux box. 
 
-### Libvirt provider
+We are actually going to pxe boot an ubuntu machine but vagrant needs a box to start up.
 
-No box required, but will use ``Debian 8`` as with virtualbox provider.
+Looking at the virtualbox ui for the client machine, you will see it first attempts a pxe boot using the pxe boot server.
 
-```
-$ cd vagrant-pxe/client
-$ vagrant up --provider libvirt
-```
-Vagrant will hang on ``Waiting for domain to get an IP address...``.  
-That's because box ask for network configuration on management network which do not exist here. Please ignore it.  
+<img src="./docs/images/pxe-boot-menu.png" alt="pxe-boot-menu.png" width="50%"/>
 
-To restart boot procedure.
-```
-$ vagrant reload
-```
+You will be presented with a menu for either selecting `Install ubuntu server from pxe boot` or `Local Boot`.
+
+If you choose to `Local Boot` at this point, you will boot into rocky linux which has already been installed in the drive by vagrant.
+
+If you choose `Install ubuntu server from pxe boot`, the pxe boot installation process will start and will overwrite rocky linux on the disk with ubuntu.
+
+Once the installation process has completed, the machine will reboot and will present you with the original pxe boot screen.
+However if you choose `Local Boot`, you will now boot into the newly installed Ubuntu server.
+
+You can log into the Ubuntu server using the credentials
+
+user: ansible
+password: minad1234
+
+(Note that the vagrant command line will appear to fail or time out because it cannot SSH into the machine since it no longer is a vagrant box).
+
+
+---
+**Exercise 4.2**
+
+Install ansible on the pxe server and use it to install apache on the new Ubuntu machine
+* modify the pxe-server vagrant script  to provision an ansible user and to install ansible on the pxe server
+* create and test an ansible script to install apache on the new Ubuntu machine
+
+---
+
+
+
 
 
 **Refs**
 
 * http://www.syslinux.org/wiki/index.php?title=PXELINUX
 * https://help.ubuntu.com/community/DisklessUbuntuHowto
-* https://github.com/vagrant-libvirt/vagrant-libvirt#no-box-and-pxe-boot
 
-**Todo**
-
-* Doc : submodule include
-* 
