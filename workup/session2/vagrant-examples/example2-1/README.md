@@ -1,4 +1,4 @@
-# Example 2-1
+# Example 2-1 - installing apache using provisioner
 
 These two projects show how to set up the Apache web server on ubuntu and rocky linux (RHEL) servers using vagrant provisioning scripts.
 
