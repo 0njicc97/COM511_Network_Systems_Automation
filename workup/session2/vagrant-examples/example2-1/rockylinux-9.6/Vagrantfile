@@ -72,6 +72,7 @@ Vagrant.configure("2") do |config|
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
    config.vm.provision "shell", inline: <<-SHELL
+     echo "Provisioning virtual machine with httpd and index.html and opening firewall for http port 80"
      yum install -y httpd
      systemctl enable httpd
      systemctl start httpd
@@ -79,6 +80,6 @@ Vagrant.configure("2") do |config|
      systemctl start firewalld
      firewall-cmd --add-service=http --permanent
      firewall-cmd --reload
-     cp /vagrant/index.html /var/www/index.html
+     cp /vagrant/examplewebpage.html /var/www/html/examplewebpage.html
    SHELL
 end
