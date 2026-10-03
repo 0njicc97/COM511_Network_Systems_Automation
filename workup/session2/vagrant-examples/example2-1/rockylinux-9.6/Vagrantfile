@@ -79,6 +79,6 @@ Vagrant.configure("2") do |config|
      systemctl start firewalld
      firewall-cmd --add-service=http --permanent
      firewall-cmd --reload
-     cp /vagrant/index.html /var/www/html/index.html
+     cp /vagrant/index.html /var/www/index.html
    SHELL
 end

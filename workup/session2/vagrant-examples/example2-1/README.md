@@ -2,7 +2,7 @@
 
 These two projects show how to set up the Apache web server on ubuntu and rocky linux (RHEL) servers using vagrant provisioning scripts.
 
-[ubuntu-22.04](./ubuntu-22.04)
+[ubuntu-24.04](./ubuntu-24.04)
 
 In ubuntu the apache package is called Apache2.
 When it is installed it is enabled and started automatically.
@@ -33,5 +33,5 @@ So we create a host only virtual box network  with a fixed ip address which can 
 
 By default, the httpd installation does not provide an index.html page so we need to copy an index.html page into the VM.
 
-THis can be accessed from the host at 
+THis can be accessed from the host at examplewebpage.html
 
