@@ -1,4 +1,4 @@
-# Example 2-2 Managing using vagrant
+# Example 2-2 Managing using ansible
 
 create users with passwords and ssh keys
 
