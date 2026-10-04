@@ -6,7 +6,7 @@ These two projects show how to set up the Apache web server on ubuntu and rocky 
 
 ## Ubuntu example
 
-See [ubuntu-24.04](./ubuntu-24.04)
+See [example2-1/ubuntu-24.04](./ubuntu-24.04)
 
 In Ubuntu the Apache server package is called Apache2.
 When it is installed it is enabled and started automatically.
@@ -21,7 +21,7 @@ This page can be accessed at [http://localhost:8081/examplewebpage.html](http://
 
 ## Rocky Linux example
 
-See [rockylinux-9.6](./rockylinux-9.6)
+See [example2-1/rockylinux-9.6](./rockylinux-9.6)
 
 Rocky linux is a bit more complicated.
 
