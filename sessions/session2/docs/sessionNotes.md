@@ -87,6 +87,15 @@ He following users are created
 Ansible is an open source provisioning orchestration system curated by RedHat
 
    ![alt text](../docs/images/AnsibleArchitecture1.png "Figure AnsibleArchitecture1.png")
+
+---
+**Exercise 2.3**
+
+Go through the [session2/vagrant-examples/example2-2/ansible](../../session2/vagrant-examples/example2-1/ansible) examples to run a simple set of ansible commands
+* can you ping the servers using ansible
+* can you adapt any of the examples below and run them in your server
+
+---
   
 Some ansible projects are conveniently provided in the `/vagrant/ansible` folder which you should try first.
 
