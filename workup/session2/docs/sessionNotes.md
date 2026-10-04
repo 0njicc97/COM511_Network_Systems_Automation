@@ -11,7 +11,16 @@ This allows us to add software to provisioned virtual machines for use in experi
 You were left with an exercise to provision the Apache Web Server on a RHEL/Rocky Linux machine and on an Ubuntu machine.
 
 Answers to this exercise are in [session2/vagrant-examples/example2-1](../../session2/vagrant-examples/example2-1).
-Go through these examples and make sure you understand how the provisioning works.
+
+---
+**Exercise 2.1**
+
+Go through the [session2/vagrant-examples/example2-1](../../session2/vagrant-examples/example2-1) examples and make sure you understand how the provisioning works.
+* how do ubuntu and rocky differ in provisioning
+* how is the web page injected into the machines
+
+---
+
 
 ## Provisioning multiple machines with shared keys and passwords and a host only network
 
@@ -37,7 +46,16 @@ Instead of using DHCP, vagrant will provision a static IP address for each machi
 
 We create new users with passwords and also corresponding private and public SSH keys to allow authentication between the machines using SSH.
 
-Look at the exercises in  [session2/vagrant-examples/example2-2](../../session2/vagrant-examples/example2-2)  which provisions 3 machines.
+---
+**Exercise 2.2**
+
+Look at the vagrant files and scripts in  [session2/vagrant-examples/example2-2](../../session2/vagrant-examples/example2-2)  which provisions 3 machines.
+* make sure you understand how the three machines are provisioned.
+* How do the network insterfaces get IP addresses
+* Can you ssh between the machines using both passwords and ssh keys
+
+---
+
 
 |Name               |IP Address eth0                       | ip address eth1                        | Operating System            | Notes              |
 |:------------------|:-------------------------------------|:---------------------------------------|:----------------------------|:-------------------|
@@ -64,6 +82,18 @@ He following users are created
 | admin           | minad1234   | no SSH Key user                                                                        |
 
 
+# Starting to use ansible
 
+Ansible is an open source provisioning orchestration system curated by RedHat
 
+   ![alt text](../docs/images/AnsibleArchitecture1.png "Figure AnsibleArchitecture1.png")
+  
+Some ansible projects are conveniently provided in the `/vagrant/ansible` folder which you should try first.
 
+Following that first attempt, there are some quite good tutorials here which you can adapt to your set up
+
+[Getting Started with Ansible: A Beginner’s Guide](https://dev.to/anushree_gm/getting-started-with-ansible-a-beginners-guide-3deh )
+
+[Ansible Fundamentals Beyond the First Playbook](https://dev.to/anushree_gm/ansible-fundamentals-beyond-the-first-playbook-2gb4 )
+
+If you work through these tutorials, you do not need to install ansible because it is already installed on the `ansible controller` machine and the ansible .ssh keys are already generated.  
