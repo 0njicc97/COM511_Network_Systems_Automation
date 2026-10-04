@@ -23,11 +23,15 @@ For our work going forwards, we will need to provision machines with additional 
 
 The machines provisioned so far have had only one `Network Interface Card (NIC)` which is connected to a `Network Address Translation (NAT)` network in VirtualBox. 
 
+This provides the the gateway to the Internet and DNS services through the host.
+
 Virtual Box uses `Dynamic Host Control Protocol (DHCP)` to automatically allocate each virtual machine an IP address. 
 VirtualBox translates that address into a mapped port on the host computer's network. 
 This allows the virtual machine to talk to the Internet an but it does not allow the host or the Internet to connect directly to the virtual machine.
 
 We will now create in each machine a second NIC connected to a `Host Only Network` which is directly connected to a virtual NIC in the host. 
+
+This allows the machines to talk to each other and to the host but not outside the host.
 
 Instead of using DHCP, vagrant will provision a static IP address for each machine so that we know which machine is mapped to which IP address.
 
@@ -35,19 +39,29 @@ We create new users with passwords and also corresponding private and public SSH
 
 Look at the exercises in  [session2/vagrant-examples/example2-2](../../session2/vagrant-examples/example2-2)  which provisions 3 machines.
 
-|Name        |IP Address eth0                       | ip address eth1                 | Operating System            | Notes        |
-|:-----------|:-------------------------------------|:--------------------------------|:----------------------------|:-------------|
-|ansible-controller | DHCP<BR>Gateway              | 192.168.56.10 <BR>Gateway 192.168.56.1                         | Ubuntu 24.04                |              |
-|ubuntu-1 | DHCP<BR>Gateway              | 192.168.56.20 <BR>Gateway 192.168.56.1                                   | Ubuntu 24.04                |              |
-|rocky_1 | DHCP<BR>Gateway               | 192.168.56.30 <BR>Gateway 192.168.56.1                                   | Rocky linux 9.6           |              |
-|host               | NAT<BR>Gateway               | 192.168.56.1                                | Windows               |              |
-rockylinux-9.6
+|Name               |IP Address eth0                       | ip address eth1                        | Operating System            | Notes              |
+|:------------------|:-------------------------------------|:---------------------------------------|:----------------------------|:-------------------|
+|ansible-controller | DHCP<BR>Gateway 10.0.2.1/24          | 192.168.56.10 <BR>Gateway 192.168.56.1 | Ubuntu 24.04                | installed ansible  |
+|ubuntu-1           | DHCP<BR>Gateway 10.0.2.1/24          | 192.168.56.20 <BR>Gateway 192.168.56.1 | Ubuntu 24.04                |                    |
+|rocky_1            | DHCP<BR>Gateway 10.0.2.1/24          | 192.168.56.30 <BR>Gateway 192.168.56.1 | Rocky linux 9.6             |                    |
+|host               | NAT<BR>10.0.2.1/24                   | 192.168.56.1  (host)                   | Windows                     |                    |
 
-| User Name       | Password |
-|:----------------|:------------|
-| vagrant         | SSH Key Only (vagrant ssh)  |
-| ansible         | SSH Key minad1234          |
-| admin           | no SSH Key minad1234          |
+
+Three scripts are used to provision the vms
+
+generate-ansible-ssh.sh  used to generate ansible user SSH keys in shared folder /vagrant/.ssh-keys
+
+provision-users-rhel.sh  used to create users on RHEL/Rocky machines
+
+provision-users-ubuntu.sh used to create users on on Ubuntu machines
+
+He following users are created
+
+| User Name       | Password    | SSH Key                                                                                |
+|:----------------|:------------|:---------------------------------------------------------------------------------------|
+| vagrant         | NONE        | SSH Key Only `/home/vagrant/.ssh` and in `/vagrant/.vagrant` (vagrant ssh)  |
+| ansible         | minad1234   | SSH Key in   `/home/ansible/.ssh` and in `/vagrant/.ssh-keys`               |
+| admin           | minad1234   | no SSH Key user                                                                        |
 
 
 
