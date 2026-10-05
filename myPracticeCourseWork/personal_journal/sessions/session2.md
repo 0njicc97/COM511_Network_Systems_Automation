@@ -5,6 +5,7 @@
 ## Topics covered
 *What topics were covered in this session*
 
+My work for this class used the local copy of the instructors session 2 at [Session2](../../session2)
 
 
 ## Personal Notes and research following this session
