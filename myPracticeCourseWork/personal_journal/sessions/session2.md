@@ -7,6 +7,8 @@
 
 My work for this class used the local copy of the instructors session 2 at [Session2](../../session2)
 
+Created a web page html example using [w3schools](https://www.w3schools.com/Html/)
+
 
 ## Personal Notes and research following this session
 *Which class sessions and personal research refers to technology in this proposal. Link to examples.*
