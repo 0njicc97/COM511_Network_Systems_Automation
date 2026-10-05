@@ -15,7 +15,8 @@ ansible -i inventory.ini all -m ping
 
 ```
 
-The first time you run this command you will likely get an error 
+The first time you run this command you will likely get an error
+ 
 ```
 Task failed: Failed to connect to the host via ssh: Host key verification failed.
 [ERROR]: Task failed: Failed to connect to the host via ssh: Host key verification failed.

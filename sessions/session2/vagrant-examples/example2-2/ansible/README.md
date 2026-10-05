@@ -8,4 +8,6 @@ Any changes in this folder can be committed to Git in the host
 
 You can add you own ansible examples here and try them against the rocky and ubuntu machines.
 
+## Provided examples
+
 [project-ansible2-1](./project-ansible2-1) simple ansible ping example
