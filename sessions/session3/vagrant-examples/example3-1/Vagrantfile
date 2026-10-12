@@ -157,7 +157,8 @@ Vagrant.configure("2") do |config|
    
   end  # ubuntu_2
   
-  # Machine for DNS bind server
+  # Machine for DNS bind server example in project-ansible3-2
+  # This machine is given another static address 192.168.100.250
   config.vm.define "ubuntu_bind" do |ubuntu_bind|
 
      # note local box defined in another project

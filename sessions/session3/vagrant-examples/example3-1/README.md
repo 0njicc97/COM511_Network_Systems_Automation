@@ -230,8 +230,6 @@ Could you modify the current ansible scripts to reload the DHCP clients automati
 
 ---
 
-
-
 ## DNS Example using dnsmasq
 
 Dnamasq can also run as a DNS server in the `ansible_controller` machine and this configuration is also set up using Ansible.

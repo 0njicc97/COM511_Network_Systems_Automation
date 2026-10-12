@@ -1,5 +1,23 @@
 # configuring BIND as a dns server
 
+## running example
+
+First run project-ansible3-1 then run this example
+
+```
+vagrant ssh ansible-controller
+
+sudo su ansible
+
+cd /vagrant/ansible/project-ansible3-2
+
+ansible-playbook -i inventory dns_server.yml
+
+
+```
+
+This sets up a bind server on an additional ubuntu machine which was not involved in the dnsmasq example
+
 This is based on example [https://github.com/RabinSubedi3180/DNS-setup-ansible/blob/main/README.md](https://github.com/RabinSubedi3180/DNS-setup-ansible/blob/main/README.md)
 
 # Automated BIND DNS Server Configuration on CentOS Stream 10
