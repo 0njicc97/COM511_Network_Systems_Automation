@@ -197,6 +197,38 @@ Pre-scan script results:
 |_    Router: 192.168.100.254
 ```
 
+### updating DHCP ip addresses
+
+The dnsmasq configuration will set up the initial IP addresses using DHCP.
+If you want to change allocated static addresses, you will need to update the inventory, delete the leases file and restart any clients which get theri address using DHCP
+
+You can change the address associated with a given mac address by updating the `inventory.ini` file and re-running the ansible script.
+
+However, this will not update the client addresses unless you also follow the the procedure:
+
+1. stop dnsmasq
+2. delete the dnsmasq `/var/lib/misc/dnsmasq.leases` file
+3. update the dnsmasq configuration with ansible
+4. restart dnsmasq
+   ```
+   sudo systemctl stop dnsmasq
+   sudo rm /var/lib/misc/dnsmasq.leases
+   sudo systemctl start dnsmasq
+   ```
+5. You will also need to reload the DHCP configuration for each client interface in turn by restarting the networking on each client
+   ```
+    sudo systemctl restart systemd-networkd
+   ```
+
+---
+**Extra challenge**
+
+Could you modify the current ansible scripts to relaod DHCP clients automatically when an IP address is changed in the inventory?
+
+---
+
+
+
 ## DNS Example using dnsmasq
 
 Dnamasq can also run as a DNS server in the `ansible_controller` machine and this configuration is also set up using Ansible.
@@ -263,6 +295,8 @@ ansible-playbook -i inventory/dev/hosts.ini  setup-guest-dns.yml
 ```
 
 (Remember that you will first need to log into each machine from the ansible account to establish it as a trusted host, or modify the command to allow untrusted ssh logins). 
+
+
 
 ### Testing
 
