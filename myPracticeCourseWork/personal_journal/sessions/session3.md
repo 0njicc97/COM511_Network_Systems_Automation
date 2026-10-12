@@ -3,7 +3,7 @@
 # Session 3
 
 ## Topics covered
-*What topics were covered in this session*
+*Setting up a DHCP/DNS to the ansible controller and set up the other machines that is ubuntu 1 and ubuntu 2 so that they can automatic get their IP address from the ansible controller which now act as a DHCP, *
 
 
 
@@ -14,6 +14,8 @@
 
 ## Exercises and results
 *What exercises did you complete. What results. Screen shots and notes*
+Set up the ansible controller to act as the DHCP Which provide the IP address automatically communicate to the to the other device connected to it
+
 
 
 
