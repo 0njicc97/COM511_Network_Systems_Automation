@@ -123,7 +123,6 @@ sudo su ansible
 cd /vagrant/ansible/project-ansible3-1
 
 ansible-playbook -i inventory/dev/hosts.ini  setup-dnsmasq-server.yml
-
 ```
 
 You can check the state of dnsmasq using
@@ -198,25 +197,25 @@ Pre-scan script results:
 |_    Router: 192.168.100.254
 ```
 
-### updating DHCP ip addresses
+### updating DHCP issued IP addresses
 
 The dnsmasq configuration will set up the initial IP addresses using DHCP.
-If you want to change allocated static addresses, you will need to update the inventory, delete the leases file and restart any clients which get theri address using DHCP
+If you want to change allocated static addresses, you will need to update the inventory, delete the leases file and restart any clients which get their address using DHCP
 
 You can change the address associated with a given mac address by updating the `inventory.ini` file and re-running the ansible script.
 
 However, this will not update the client addresses unless you also follow the the procedure:
 
-1. stop dnsmasq
-2. delete the dnsmasq `/var/lib/misc/dnsmasq.leases` file
-3. update the dnsmasq configuration with ansible
-4. restart dnsmasq
+1. Stop dnsmasq
+2. Update the dnsmasq configuration with ansible
+3. Delete the dnsmasq leases file `/var/lib/misc/dnsmasq.leases`
+5. Restart dnsmasq
    ```
    sudo systemctl stop dnsmasq
    sudo rm /var/lib/misc/dnsmasq.leases
    sudo systemctl start dnsmasq
    ```
-5. You will also need to reload the DHCP configuration for each client interface in turn by restarting the networking on each client
+6. You will also need to reload the DHCP configuration for each client interface in turn by restarting the networking on each client
    ```
     sudo systemctl restart systemd-networkd
    ```
@@ -224,7 +223,7 @@ However, this will not update the client addresses unless you also follow the th
 ---
 **Extra challenge**
 
-Could you modify the current ansible scripts to relaod DHCP clients automatically when an IP address is changed in the inventory?
+Could you modify the current ansible scripts to reload the DHCP clients automatically when an IP address is changed in the inventory?
 
 ---
 
@@ -234,7 +233,7 @@ Could you modify the current ansible scripts to relaod DHCP clients automaticall
 
 Dnamasq can also run as a DNS server in the `ansible_controller` machine and this configuration is also set up using Ansible.
 
-The `local-dns.conf` template is used to generate a file in `/etc/dnsmasq.d/local-dns.conf` which contains the dns name mappings.
+The `local-dns.conf.j2` template is used to generate a file in `/etc/dnsmasq.d/local-dns.conf` which contains the dns name mappings.
 Each server host name name in the inventory is appended to the `dnsmasq_domain` which is `lab.example.com` to create the fully qualified domain name.
 
 ```
