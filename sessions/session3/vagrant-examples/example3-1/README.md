@@ -261,13 +261,13 @@ This is the preferred server and will be resolved by the default dns server in t
 `8.8.8.8` is google's DNS and is supplied as a fallback.
 (Note that if you are using a university wireless network, only the network's dns server an be used and (`8.8.8.8`) may not be allowed).
 
-Ubuntu now uses `systemd-resolved` as a local dns cache. 
+By default, Ubuntu uses `systemd-resolved` as a local dns cache. 
 
 You can find out more about systemd-resolved from [What Is `systemd-resolved` and Why Ubuntu Relies on It](https://cloudhousetechnologies.com/blog/how-to-fix-ubuntu-dns-resolution-failures-with-systemd-resolved)   
 
 `systemd-resolved` uses the same UDP ports and cannot run at the same time a `dnsmasq`, so we need to remove it in the ansible script.
 
-After removing `systemd-resolved`, sw can configure dnsmasq and tell Ubuntu which dns servers to use through `etc/resolve.conf`
+After removing `systemd-resolved`, we can configure dnsmasq and tell Ubuntu which dns servers to use through `etc/resolve.conf`
 
 ```
 # /etc/resolv.conf
@@ -295,7 +295,6 @@ ansible-playbook -i inventory/dev/hosts.ini  setup-guest-dns.yml
 ```
 
 (Remember that you will first need to log into each machine from the ansible account to establish it as a trusted host, or modify the command to allow untrusted ssh logins). 
-
 
 
 ### Testing
