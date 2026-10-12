@@ -81,7 +81,7 @@ We will install dnsmasq on our `ansible_controler` to turn it into our DHCP/DNS 
 
 Ansible is installed on the `ansible_controler` and we will use ansible to install and configure `dnsmasq`, so that the other servers can use it to get their IP addresses.
 
-The Ansible  project which installs `dnsmasq` is in [project-ansible3-1](../ansible/project-ansible3-1)
+The Ansible  project which installs `dnsmasq` is in [project-ansible3-1](./ansible/project-ansible3-1)
 
 The inventory is organised so that a `vars_file.yaml` contains variables which apply to all of the hosts in `hosts.ini`
 
