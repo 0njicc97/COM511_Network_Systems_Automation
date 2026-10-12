@@ -61,6 +61,9 @@ ansible_controller        running (virtualbox)
 ubuntu_1                  running (virtualbox)
 ubuntu_2                  running (virtualbox)
 ```
+
+(You will also see an entry for ubuntu-bind - ignore this for now )
+
 Log into the `ansible_controler`, change to the `ansible` user and make sure you can ssh to the `ansible_controller` on address `192.168.100.254`.
 (accept any host keys)
 

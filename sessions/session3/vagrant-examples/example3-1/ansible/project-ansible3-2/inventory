@@ -1,0 +1,25 @@
+[dnsservers]
+dns1 ansible_host=192.0.2.10
+
+[webservers]
+web01 ansible_host=192.0.2.21
+
+[appservers]
+app01 ansible_host=192.0.2.22
+
+[controllers]
+ctrl01 ansible_host=192.0.2.23
+
+[company_nodes:children]
+webservers
+appservers
+controllers
+
+[dnsservers:vars]
+domain_name=practice.local
+reverse_net=2.0.192
+dns_ip=192.0.2.10
+allowed_network=192.0.2.0/24
+
+
+

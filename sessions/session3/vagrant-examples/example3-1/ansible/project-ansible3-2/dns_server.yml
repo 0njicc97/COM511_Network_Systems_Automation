@@ -1,0 +1,75 @@
+- name: Setup Authoritative BIND DNS Server
+  hosts: dnsservers
+  become: true
+  
+  tasks:
+    - name: Ensure target setup facts are fully populated
+      setup:
+        gather_subset:
+          - date_time
+
+
+    - name: Compute precise dynamic zone serial number
+      set_fact:
+        zone_serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}{{ ansible_date_time.hour }}"
+
+
+    - name: Install required packages
+      dnf:
+        name:
+          - bind
+          - bind-utils
+        state: present
+
+    - name: Deploy named.conf file
+      template:
+        src: ./templates/named.conf.j2
+        dest: /etc/named.conf
+        owner: root
+        group: named
+        mode: '0640'
+      notify: Restart named
+
+
+    - name: Deploy forward zone database
+      template:
+        src: ./templates/forward.zone.j2
+        dest: "/var/named/{{ domain_name }}.forward"
+        owner: root
+        group: named
+        mode: '0640'
+      notify: Restart named
+
+    - name: Deploy reverse zone database
+      template:
+        src: ./templates/reverse.zone.j2
+        dest: "/var/named/{{ domain_name }}.reverse"
+        owner: root
+        group: named
+        mode: '0640'
+      notify: Restart named
+
+    - name: Ensure firewall allows DNS traffic
+      firewalld:
+        service: dns
+        permanent: true
+        state: enabled
+        immediate: true
+
+
+    - name: Enable and start BIND service
+      systemd:
+        name: named
+        state: started
+        enabled: true
+
+  handlers:
+    - name: Restart named
+      systemd:
+        name: named
+        state: restarted
+
+
+
+
+
