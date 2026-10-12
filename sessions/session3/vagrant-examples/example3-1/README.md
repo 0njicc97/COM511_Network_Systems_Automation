@@ -108,7 +108,7 @@ ubuntu-1            eth0_ip=                  eth0_mac=                     eth1
 
 `dnsmasq` uses configuration files in `/etc/dnsmasq.conf` and additional configurations in `/etc/dnsmasq.d/`
 
-The main work for configuration is done by the ansible role [dnsmasq-config](./ansible/project-ansible3-1/dnsmasq-config).
+The main work for configuration is done by the ansible role [dnsmasq-config](./ansible/project-ansible3-1/roles/dnsmasq-config).
 
 The role generates the configuration using template files in the [templates](./ansible/project-ansible3-1/templates) folder.
 
