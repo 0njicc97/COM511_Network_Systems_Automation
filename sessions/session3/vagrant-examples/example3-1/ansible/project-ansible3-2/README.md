@@ -104,22 +104,25 @@ reverse_net=100.168.192
 dns_ip=192.168.100.250
 ```
 
-## Post-Deployment Verification
+### 2. Post-Deployment Verification
 
-use dig and nslookup to check the new names
+The name server gives the following names
+
+| dns name             | machine            | ip address      |
+|:---------------------|:-------------------|:----------------|
+| web01.practice.local | ubuntu_1           | 192.168.100.20  |
+| app01.practice.local | ubuntu_2           | 192.168.100.20  |
+| ctl01.practice.local | ansible_controller | 192.168.100.254 |
+| dns1.practice.local  | ubuntu_bind        | 192.168.100.250 |
+
+Use dig and nslookup to check the new names
 
 ```
 nslookup google.com 192.168.100.250
 
 nslookup web01.practice.local 192.168.100.250
 
-web01.practice.local 192.168.100.20
-app01.practice.local 192.168.100.20
-ctl01.practice.local 192.168.100.254
-
-dns1.practice.local 192.168.100.250
 ```
-
-How would we set up this server to use this dns server to resolve ping queries instead of the default server - and could we use both?
+Challenge: How would we set up this server to use this dns server to resolve ping queries instead of the default server - and could we use both?
 
 
