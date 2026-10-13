@@ -3,6 +3,12 @@
   hosts: dnsservers
   become: true
   
+  vars:
+    bind_listen_ipv4: "{{ ansible_default_ipv4.address }}"
+    bind_forwarders:
+      - 10.0.2.3
+      - 8.8.8.8
+  
   tasks:
     - name: Ensure target setup facts are fully populated
       setup:
@@ -10,8 +16,8 @@
           - date_time
 
     - name: Compute precise dynamic zone serial number
-      set_fact:
-        zone_serial: "{{ ansible_date_time.year }}{{ ansible_date_time.month }}{{ ansible_date_time.day }}{{ ansible_date_time.hour }}"
+      set_fact:   
+        zone_serial: "{{ ansible_facts['date_time']['year']}}{{ ansible_facts['date_time']['month']}}{{ ansible_facts['date_time']['day'] }}{{ ansible_facts['date_time']['hour'] }}"
 
     - name: Install required packages
       apt:
@@ -45,7 +51,7 @@
         state: directory
         owner: root
         group: bind
-        mode: '0755'
+        mode: '0777'
         
     - name: Create bind logs directory
       ansible.builtin.file:
@@ -53,7 +59,7 @@
         state: directory
         owner: root
         group: bind
-        mode: '0766'      
+        mode: '0777'      
         
 
     - name: Deploy forward zone database
