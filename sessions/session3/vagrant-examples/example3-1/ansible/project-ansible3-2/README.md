@@ -11,7 +11,7 @@ sudo su ansible
 
 cd /vagrant/ansible/project-ansible3-2
 
-ansible-playbook -i inventory dns_server.yml
+ansible-playbook -i inventory.ini dns_server.yml
 
 
 ```
