@@ -2,6 +2,8 @@
 
 Forked and modified from https://github.com/eoli3n/vagrant-pxe/tree/pxelinux 
 
+See also [Ubuntu 24.04 – Deploy Ubuntu 24.04 Desktop through PXE (BIOS & UEFI)](https://c-nergy.be/blog/?p=20005)
+
 A vagrant PXE client/server environment which supports virtualbox providers.  
 
 It is designed to learn and test cloning solutions, nfsroot, syslinux, etc...
