@@ -169,7 +169,7 @@ First `exit` the ubuntu terminal then stop the container using.
 docker stop ubuntu1
 ```
 Check it has stopped using `docker ps`
-```
+
 
 # Building containers using docker
 
