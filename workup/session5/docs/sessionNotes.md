@@ -58,7 +58,7 @@ After that, you can do the same exercises as in Exercise 5.1 above.
 ---
 **Exercise 5.2**
 
-Go through the exercises in  [vagrant-examples/example5-1](../../vagrant-examples/example5-1)
+Go through the exercises in  [vagrant-examples/example5-1](../vagrant-examples/example5_1)
 * Installing Docker in Ubuntu using vagrant
 * Running a docker container in ubuntu
 * Building a docker container in ubuntu
