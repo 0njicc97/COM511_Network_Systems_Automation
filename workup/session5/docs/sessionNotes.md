@@ -41,6 +41,8 @@ Containers can be started and controlled individually using the command line but
 
 For now we will start by installing and testing docker using a simple docker image.
 
+THe first set of examples will use Docker Desktop
+
 ---
 **Exercise 5.1**
 
@@ -50,11 +52,14 @@ Go through the exercises in  [Installing and using Docker Desktop](./InstalingAn
 * Building a docker container
 ---
 
+The second set of examples uses Vagrant to install docker on an Ubuntu VM.
+After that, you can do the same exercises as in Exercise 5.1 above.
+
 ---
 **Exercise 5.2**
 
-Go through the exercises in  [example5-1](../vagrant-examples/example5-1)
+Go through the exercises in  [vagrant-examples/example5-1](../../vagrant-examples/example5-1)
 * Installing Docker in Ubuntu using vagrant
-* Running a docker container
-* Building a docker container
+* Running a docker container in ubuntu
+* Building a docker container in ubuntu
 ---

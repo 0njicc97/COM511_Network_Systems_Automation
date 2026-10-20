@@ -197,7 +197,7 @@ CMD ["apachectl", "-D", "FOREGROUND"]
 
 ```
 
-Now inside the `docker-apach`e folder, run the command
+Now inside the `docker-apache` folder, run the command
 
 ```
 docker build -t my-apache .
