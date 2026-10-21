@@ -16,20 +16,20 @@ services:
   apache-1:
     # this image version defaults to latest if not specified in the .env file
     image: ubuntu/apache2:${APACHE_IMAGE_VERSION:-latest}
-    container_name: ubuntu_apache_server
+    container_name: apache-1
     ports:
       - "8081:80"
     volumes:
-      - ./container-fs/apache2/html:/var/www/html:ro
+      - ./container-fs/apache2/html:/var/www/html
     restart: unless-stopped
     
   apache-2:
     image: ubuntu/apache2:${APACHE_IMAGE_VERSION:-latest}
-    container_name: ubuntu_apache_server
+    container_name: apache-2
     ports:
-      - "8081:80"
+      - "8082:80"
     volumes:
-      - ./container-fs/apache2/html:/var/www/html:ro
+      - ./container-fs/apache2/html:/var/www/html
     restart: unless-stopped
 
 ```
