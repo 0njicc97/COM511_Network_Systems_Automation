@@ -30,7 +30,7 @@ We are going to use it to help us learn more about containers in a lab environme
 ---
 **Exercise 6.1**
 
-Go through the exercises in  [docker-compose-examples](./docker-compose-examples).
+Go through the exercises in  [docker-compose-examples](../docker-compose-examples).
 Make sure you can explain 
 * Using docker compose to build an image
 * Using a pre-built image
