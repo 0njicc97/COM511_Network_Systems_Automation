@@ -37,7 +37,7 @@ Many projects create containers which pre-package and make it easy to deploy the
 If a particular package requires other packages, say a database, then we can use a separate container to provide that service. 
 Many large applications are deployed as multiple containers and can increase their capacity by adding more container instances on demand.
 
-Containers can be started and controlled individually using the command line but more often they are managed using orchestration services such as [Docker Compose](https://docs.docker.com/compose/) or Kubernetes which we will look at later.
+Containers can be started and controlled individually using the command line but more often they are managed using orchestration services such as [Docker Compose](https://docs.docker.com/compose/) or [Kubernetes](https://kubernetes.io/) which we will look at later.
 
 For now we will start by installing and testing docker using a simple docker image.
 
