@@ -24,7 +24,8 @@ Azure (Microsoft)
 * [Deployment of multiple Containers in Azure as Container Instance using Docker Compose](https://www.patrickkoch.dev/posts/post_20/)
 
 In summary, `Docker Compose` remains a very good way to spin up containerised applications locally in development and in small production environments.
-We are going to use it to help us learn more about containers.
+It can also act as a stepping stone into more complex container orchestration frameworks in the cloud.
+We are going to use it to help us learn more about containers in a lab environment.
 
 ---
 **Exercise 6.1**
