@@ -10,46 +10,17 @@ networks:
     ipam:
       config:
         - subnet: 172.20.0.0/24
-  N001:
-    ipam:
-      config:
-        - subnet: 172.20.2.0/24
-
 
 volumes:
-  data-postgres: {}
-  data-opennms: {}
-  data-opennms-cfg: {}
-  data-grafana: {}
   db_data: {} # data for mariadb / wordpress
   wp_data: {} # data for wordpress
 
 services:
 
-
   ###########################################
-  # wordpress load balancer example network
+  # wordpress example
   ###########################################
-  
-  # load balancer and http termination for wordpress
-  nginx:
-    image: nginx:1.23-alpine
-    #image: exoplatform/nginx:1.26.3  # has nginx-sticky-module-ng to adds session persistence
-    container_name: nginx
-    hostname: nginx
-    restart: unless-stopped
-    volumes:
-      - ./container-fs/nginx/conf.d:/etc/nginx/conf.d
-      - ./container-fs/nginx/certs:/etc/ssl/certs
-      - ./container-fs/nginx/private:/etc/ssl/private
-      - ./container-fs/nginx/html/index.html:/usr/share/nginx/html/index.html
-    ports:
-      - "80:80"
-      - "443:443"
-    networks:
-      N000:
-        ipv4_address: 172.20.0.5
-  
+    
   # word press example modified from 
   # https://github.com/docker/awesome-compose/tree/master/wordpress-mysql
   
@@ -83,8 +54,6 @@ services:
     depends_on:
       - db
       - wordpress1
-      - wordpress2
-      - wordpress3
     image: wordpress:cli
     container_name: wordpress-cli
     hostname: wordpress-cli
@@ -99,7 +68,7 @@ services:
     command: >
       /bin/sh -c '
       sleep 20;
-      wp core install --path="/var/www/html/wordpress" --url="https://localhost/wordpress" --title="Local Wordpress By Docker" --admin_user=admin --admin_password=secret --admin_email=foo@bar.com
+      wp core install --path="/var/www/html/wordpress" --url="http://localhost:8011/wordpress" --title="Simple Local Wordpress By Docker" --admin_user=admin --admin_password=secret --admin_email=foo@bar.com
       '
     # vstm: add shared volume
     volumes:
@@ -141,55 +110,4 @@ services:
       N000:
         ipv4_address: 172.20.0.81
         
-  # wordpress server 2
-  wordpress2:
-    depends_on:
-      - db
-    image: wordpress:latest
-    container_name: wordpress2
-    hostname: wordpress2
-    ports:
-      - 8012:80
-    restart: unless-stopped
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_TABLE_PREFIX: "wp_"
-      WORDPRESS_DEBUG: 1
-    # note working dir must match the url root of wordpress installation
-    working_dir: /var/www/html/wordpress
-    # vstm: add shared volume
-    volumes:
-      - wp_data:/var/www/html
-    networks:
-      N000:
-        ipv4_address: 172.20.0.82
-      
-# wordpress server 3
-#  wordpress3:
-  wordpress3:
-    depends_on:
-      - db
-    image: wordpress:latest
-    container_name: wordpress3
-    hostname: unless-stopped
-    ports:
-      - 8013:80
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-      WORDPRESS_TABLE_PREFIX: "wp_"
-      WORDPRESS_DEBUG: 1
-    # note working dir must match the url root of wordpress installation
-    working_dir: /var/www/html/wordpress
-    # vstm: add shared volume
-    volumes:
-      - wp_data:/var/www/html
-    networks:
-      N000:
-        ipv4_address: 172.20.0.83
+
