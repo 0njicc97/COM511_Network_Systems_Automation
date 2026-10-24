@@ -27,7 +27,7 @@ This container waits for 20 seconds after the project starts to allow the databa
 After this initialisation step, this container exits.
 Without wordpress-cli, you would have to manually configure the Wordpress instance on first start.
 
-The nginx configuration is held in [wp-load-balencer-with-ssl.conf](..\session2\minimal-minion-activemq\container-fs\nginx\conf.d\wp-load-balencer-with-ssl.conf).
+The nginx configuration is held in [wp-load-balencer-with-ssl.conf](./container-fs/nginx/conf.d/wp-load-balencer-with-ssl.conf).
 This sets up https termination and the round robin request forwarding to the three Wordpress servers.
 
 (The ssh certificate is self signed and so you will need to accept the risk of this certificate in your browser)
