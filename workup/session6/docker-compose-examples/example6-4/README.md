@@ -30,6 +30,8 @@ Without wordpress-cli, you would have to manually configure the Wordpress instan
 The nginx configuration is held in [wp-load-balencer-with-ssl.conf](..\session2\minimal-minion-activemq\container-fs\nginx\conf.d\wp-load-balencer-with-ssl.conf).
 This sets up https termination and the round robin request forwarding to the three Wordpress servers.
 
+(The ssh certificate is self signed and so you will need to accept the risk of this certificate in your browser)
+
 ## running the example
 
 ```
@@ -50,7 +52,7 @@ docker compose up -d
  ✔ Container wordpress-cli                            Started
 ```
 
-## Testing Word press and the load balancer
+## Testing Wordpress and the load balancer
 
 The three wordpress instances share the same configuration and static data.
 They are also connected to the same database.
@@ -77,11 +79,13 @@ The wordpress admin page should show up as below.
 
 ![alt text](./images/wordpress3.png "Figure wordpress3.png")
 
-## Testing the Round-Robin load balancing 
+## Testing the Round-Robin load balancing
 
-To test that the load balancing is working, open three terminals use each one to view the word press logs for each of the wordpress instances
+To test that the load balancing is working, open four terminals and use each one to view the word press logs for each of the wordpress instances
 
 ```
+docker compose logs -f nginx
+
 docker compose logs -f wordpress1
 
 docker compose logs -f wordpress2
