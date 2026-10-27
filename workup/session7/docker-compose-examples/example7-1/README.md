@@ -1,6 +1,13 @@
 [Main Menu](../README.md) | [Session 1](../session1/README.md)
 
-# Session 1 Introduction to OpenNMS
+---
+**NOTE**
+
+This example is taken from Session 1 of the [OpenNMS tutorial series on Github](https://github.com/gallenc/opennms-tutorials-1). If you want to know more about OpenNMS, go through the tutorials there.
+
+---
+
+#  Introduction to OpenNMS
 
 ## Contents
 
@@ -13,8 +20,6 @@
 * Importing a network - requisitions
 
 # Session 1 Videos
-
-[Course Prerequisites](https://youtu.be/M-FuNBkso4M) - Cloning this repository using GIT and running a test example using Docker Desktop
 
 [OpenNMS Overview Presentation](https://youtu.be/0BVz5_ozEog) - Overview of the key features, use-cases and deployment options for OpenNMS
 
