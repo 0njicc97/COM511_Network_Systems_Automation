@@ -9,7 +9,7 @@ This is based on based on [How to install Docker on Ubuntu 22.04](https://www.di
 
 You should be able to ssh into the vagrant account and repeat all of the exercises previously done with `Docker Desktop` (with a few modifications)
 
-The machine will be visable to your host at `192.168.56.10`
+The machine will be visible to and can be pinged from your host at `192.168.56.10`
 
 You can do the exercise to build and run your apache docker image using
 
@@ -32,8 +32,9 @@ docker ps
 
 ```
 
-You should be able to see the apache home page at [http://192.168.56.10:8081/](http://192.168.56.10:8081/)
+In this case, the container's port 80 is now mapped to the virtual machine's port 8081.
 
+From the host, you should be able to see the apache home page at [http://192.168.56.10:8081/](http://192.168.56.10:8081/)
 
 When you have finished clean up the machine
 
