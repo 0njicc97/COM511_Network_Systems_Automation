@@ -5,7 +5,7 @@ Docker is reasonably easy to install on linux distributions
 
 This vagrant project installs ansible and docker in a machine for you to play with
 
-This is based on based on [How to install Docker on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04)
+(This example is based on [How to install Docker on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04) ).
 
 You should be able to ssh into the vagrant account and repeat all of the exercises previously done with `Docker Desktop` (with a few modifications)
 
