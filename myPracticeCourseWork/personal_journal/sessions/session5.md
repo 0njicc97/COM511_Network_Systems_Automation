@@ -5,6 +5,8 @@
 ## Topics covered
 *What topics were covered in this session*
 
+- Installed and run docker container 
+
 docker and docker desktop
 
 ## Personal Notes and research following this session
