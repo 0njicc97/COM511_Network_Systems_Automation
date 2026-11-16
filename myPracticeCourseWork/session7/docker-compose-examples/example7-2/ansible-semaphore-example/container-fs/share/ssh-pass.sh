@@ -1,3 +1,4 @@
+
 #!/bin/sh
 echo "running_ssh-pass_pid_$$_$(date '+%F_%H:%M:%S')" >> /tmp/ssh-pass.log
 if [ -f "/tmp/ansible_add_ssh_run_pid" ];
